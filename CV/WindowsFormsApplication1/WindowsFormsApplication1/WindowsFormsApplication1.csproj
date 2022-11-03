@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="expand.cs" />
     <Compile Include="VisionTransform.cs" />
     <Compile Include="variableList.cs" />
     <Compile Include="Form1.cs">

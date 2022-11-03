@@ -132,22 +132,6 @@ namespace WindowsFormsApplication1
 
 
 
-            //Bitmap _imgin = new Bitmap("C:/Users/user/Desktop/computer-vision-main/grayPCB.jpg");
-            //for (int i = 0; i < _imgin.Height; i++)
-            //{
-            //    for (int j = 0; j < _imgin.Width; j++)
-            //    {
-
-            //        Color pixelColor = _imgin.GetPixel(j, i);
-            //        byte B = pixelColor.B;
-            //        byte R = pixelColor.R;
-            //        byte G = pixelColor.G;
-
-            //        if (R < 35 && G <35 && B < 35) { _imgin.SetPixel(j, i, Color.Red); }
-            //        else { _imgin.SetPixel(j, i, Color.Black); }
-
-            //    }
-            //}
             
             
         }

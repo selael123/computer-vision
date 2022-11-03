@@ -14,6 +14,7 @@ namespace WindowsFormsApplication1
     {
         variableList pic = new variableList();
         VisionTransform changepic = new VisionTransform();
+        expand dc = new expand();
         string filePath = string.Empty;
         public Form1()
         {
@@ -78,18 +79,45 @@ namespace WindowsFormsApplication1
         }
 
         private void Convert_Click(object sender, EventArgs e)
-        {
-           pic.ChangeImage = new Bitmap(pic.OriginalImage.Width,pic.OriginalImage.Height,System.Drawing.Imaging.PixelFormat.Format8bppIndexed);
-           changepic.RGB2Gray(ref pic.OriginalImage, ref pic.ChangeImage);
-           ColorPalette pal = pic.ChangeImage.Palette;
-            for(int i = 0; i< 255; i++)
+        {   //get yellow
+            //pictureBox1.Image = changepic.getyellow();
+
+            //get dot
+            pic.ChangeImage = new Bitmap(pic.OriginalImage.Width, pic.OriginalImage.Height, System.Drawing.Imaging.PixelFormat.Format8bppIndexed);
+            //changepic.getcer(ref pic.OriginalImage, ref pic.ChangeImage);
+            dc.erosiond_fun(ref pic.OriginalImage, ref pic.ChangeImage);
+            //dc.expand_fun(ref pic.OriginalImage, ref pic.ChangeImage);
+            ColorPalette pal = pic.ChangeImage.Palette;
+            for (int i = 0; i < 255; i++)
             {
-                pal.Entries[i] = Color.FromArgb(255,i,i,i);
+                pal.Entries[i] = Color.FromArgb(255, i, i, i);
             }
             pic.ChangeImage.Palette = pal;
             pictureBox1.Image = pic.ChangeImage;
         }
 
-       
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //get yellow
+            //pictureBox1.Image = changepic.getyellow();
+
+            //get dot
+            pic.ChangeImage = new Bitmap(pic.OriginalImage.Width, pic.OriginalImage.Height, System.Drawing.Imaging.PixelFormat.Format8bppIndexed);
+            //changepic.getcer(ref pic.OriginalImage, ref pic.ChangeImage);
+           
+            dc.expand_fun(ref pic.OriginalImage, ref pic.ChangeImage);
+            ColorPalette pal = pic.ChangeImage.Palette;
+            for (int i = 0; i < 255; i++)
+            {
+                pal.Entries[i] = Color.FromArgb(255, i, i, i);
+            }
+            pic.ChangeImage.Palette = pal;
+            pictureBox1.Image = pic.ChangeImage;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = changepic.getyellow();
+        }
     }
 }
